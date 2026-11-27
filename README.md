@@ -174,7 +174,6 @@ For Random Forest, the original experiment achieved an AUC of 0.9152, recall of 
 
 ## 9. Project Structure
 
-```text
 adult-income-classification-ml/
 │
 ├── 2026CT05035_ML2.ipynb
@@ -183,6 +182,15 @@ adult-income-classification-ml/
 ├── test_data.csv
 │
 ├── model/
+│   ├── final_random_forest.joblib
+│   │
+│   ├── original/
+│   │   ├── decision_tree.joblib
+│   │   ├── knn.joblib
+│   │   ├── logistic_regression.joblib
+│   │   ├── naive_bayes.joblib
+│   │   └── random_forest.joblib
+│   │
 │   └── oversampled/
 │       ├── decision_tree.joblib
 │       ├── knn.joblib
@@ -193,19 +201,26 @@ adult-income-classification-ml/
 └── outputs/
     ├── original/
     │   ├── all_metrics_comparison_original.png
-    │   ├── confusion_matrix_*.png
+    │   ├── confusion_matrix_decision_tree.png
+    │   ├── confusion_matrix_knn.png
+    │   ├── confusion_matrix_logistic_regression.png
+    │   ├── confusion_matrix_naive_bayes.png
+    │   ├── confusion_matrix_random_forest.png
     │   ├── metrics_heatmap_original.png
     │   └── model_metrics.csv
     │
     ├── oversampled/
     │   ├── all_metrics_comparison_oversampled.png
-    │   ├── confusion_matrix_*.png
+    │   ├── confusion_matrix_decision_tree.png
+    │   ├── confusion_matrix_knn.png
+    │   ├── confusion_matrix_logistic_regression.png
+    │   ├── confusion_matrix_naive_bayes.png
+    │   ├── confusion_matrix_random_forest.png
     │   ├── metrics_heatmap_oversampled.png
     │   └── model_metrics.csv
     │
     └── original_vs_oversampled_comparison.csv
-```
-
+    
 ## 10. Technologies Used
 
 - Python
