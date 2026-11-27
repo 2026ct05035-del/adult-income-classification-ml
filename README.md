@@ -173,7 +173,7 @@ The results showed that oversampling improved recall for some classifiers, parti
 For Random Forest, the original experiment achieved an AUC of 0.9152, recall of 0.8191, F1 score of 0.7083 and MCC of 0.6099. After Random Oversampling, Random Forest achieved an accuracy of 0.8404, precision of 0.6333 and F1 score of 0.7042. Although oversampling slightly improved accuracy and precision, the original experiment performed better in AUC, recall, F1 and MCC. This indicates that oversampling did not improve the overall performance of Random Forest.
 
 ## 9. Project Structure
-
+```text
 adult-income-classification-ml/
 │
 ├── 2026CT05035_ML2.ipynb
@@ -183,7 +183,6 @@ adult-income-classification-ml/
 │
 ├── model/
 │   ├── final_random_forest.joblib
-│   │
 │   ├── original/
 │   │   ├── decision_tree.joblib
 │   │   ├── knn.joblib
@@ -200,26 +199,9 @@ adult-income-classification-ml/
 │
 └── outputs/
     ├── original/
-    │   ├── all_metrics_comparison_original.png
-    │   ├── confusion_matrix_decision_tree.png
-    │   ├── confusion_matrix_knn.png
-    │   ├── confusion_matrix_logistic_regression.png
-    │   ├── confusion_matrix_naive_bayes.png
-    │   ├── confusion_matrix_random_forest.png
-    │   ├── metrics_heatmap_original.png
-    │   └── model_metrics.csv
-    │
     ├── oversampled/
-    │   ├── all_metrics_comparison_oversampled.png
-    │   ├── confusion_matrix_decision_tree.png
-    │   ├── confusion_matrix_knn.png
-    │   ├── confusion_matrix_logistic_regression.png
-    │   ├── confusion_matrix_naive_bayes.png
-    │   ├── confusion_matrix_random_forest.png
-    │   ├── metrics_heatmap_oversampled.png
-    │   └── model_metrics.csv
-    │
     └── original_vs_oversampled_comparison.csv
+```
     
 ## 10. Technologies Used
 
