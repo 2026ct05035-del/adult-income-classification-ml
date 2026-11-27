@@ -227,13 +227,15 @@ jupyter notebook
 
 ## 12. Conclusion
 
-This project implemented and evaluated five machine learning classification algorithms using the UCI Adult Income dataset.
+This project implemented and evaluated five machine learning classification algorithms using the UCI Adult Income dataset to predict whether an individual's income exceeds $50K.
 
-The experiments demonstrated differences in model performance across accuracy, AUC, precision, recall, F1 and MCC. Random Forest achieved the best overall performance in the original experiment, while the separate oversampling experiment highlighted the impact of class imbalance handling on classification results.
+The models were evaluated using Accuracy, AUC, Precision, Recall, F1 Score, and Matthews Correlation Coefficient (MCC).
 
-The project provided practical experience in data preprocessing, classification model implementation, performance evaluation and comparison of machine learning algorithms.
+In the original experiment without Random Oversampling, Random Forest achieved the best overall performance in terms of AUC (0.9152), Recall (0.8191), F1 Score (0.7083), and MCC (0.6099). Logistic Regression achieved the highest Accuracy (0.8554) and Precision (0.7415).
 
----
+A separate experiment using Random Oversampling demonstrated its impact on classification performance, particularly improving the recall of Logistic Regression from 0.6087 to 0.8470. However, oversampling did not improve every model or every evaluation metric.
+
+Overall, the experiments provided practical experience in data preprocessing, handling missing values and class imbalance, implementing classification algorithms, and evaluating machine learning models.
 
 **Course:** Machine Learning  
 **Student ID:** 2026CT05035
