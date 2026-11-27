@@ -125,11 +125,11 @@ The following results were obtained after applying Random Oversampling to the tr
 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 |---|---:|---:|---:|---:|---:|---:|
-| Logistic Regression | 0.8050 | 0.9057 | 0.5617 | 0.8470 | 0.6755 | 0.5676 |
-| Decision Tree | 0.8033 | 0.8559 | 0.5640 | 0.7896 | 0.6580 | 0.5399 |
-| kNN | 0.7796 | 0.8547 | 0.5272 | 0.7757 | 0.6277 | 0.4972 |
-| Naive Bayes | 0.3450 | 0.6162 | 0.2647 | 0.9757 | 0.4165 | 0.1619 |
-| Random Forest (Ensemble) | 0.8387 | 0.9123 | 0.6309 | 0.7878 | 0.7007 | 0.5990 |
+| Logistic Regression | 0.8092 | 0.9082 | 0.5684 | 0.8452 | 0.6797 | 0.5731 |
+| Decision Tree | 0.8063 | 0.8528 | 0.5688 | 0.7913 | 0.6618 | 0.5453 |
+| kNN | 0.7829 | 0.8612 | 0.5320 | 0.7809 | 0.6328 | 0.5045 |
+| Naive Bayes | 0.3533 | 0.6419 | 0.2647 | 0.9739 | 0.4192 | 0.1693 |
+| Random Forest (Ensemble) | 0.8404 | 0.9133 | 0.6333 | 0.7930 | 0.7042 | 0.6039 |
 
 ### Graphical Representation
 
@@ -170,7 +170,7 @@ A separate experiment was conducted using Random Oversampling to address class i
 
 The results showed that oversampling improved recall for some classifiers, particularly Logistic Regression. However, it did not improve every evaluation metric for every model.
 
-For Random Forest, the original experiment achieved better AUC, recall, F1 and MCC than the oversampled experiment. This demonstrates that oversampling does not necessarily improve overall model performance.
+For Random Forest, the original experiment achieved an AUC of 0.9152, recall of 0.8191, F1 score of 0.7083 and MCC of 0.6099. After Random Oversampling, Random Forest achieved an accuracy of 0.8404, precision of 0.6333 and F1 score of 0.7042. Although oversampling slightly improved accuracy and precision, the original experiment performed better in AUC, recall, F1 and MCC. This indicates that oversampling did not improve the overall performance of Random Forest.
 
 ## 9. Project Structure
 
