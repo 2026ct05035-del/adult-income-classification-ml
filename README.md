@@ -142,27 +142,14 @@ The generated visualization files are available in the `outputs/` directory.
 
 ## 7. Observations on Model Performance
 
-### Logistic Regression
-Achieved the highest accuracy (85.54%) and precision (74.15%). It provides good overall classification performance but has comparatively lower recall than Random Forest.
-
-### Decision Tree
-Achieved an accuracy of 84.50%. It provides reasonable classification performance but has lower AUC and F1 scores compared with Random Forest.
-
-### K-Nearest Neighbors (kNN)
-Achieved an accuracy of 82.87%. Its performance is moderate, with comparatively lower F1 and MCC scores.
-
-### Naive Bayes
-Achieved very high recall (97.39%) but very low accuracy (34.42%) and MCC (0.1589). It identifies most positive-class instances but produces many false positives.
-
-### Random Forest (Ensemble)
-
-Achieved the highest AUC (0.9152), Recall (0.8191), F1 Score (0.7083), and MCC (0.6099). It provides the strongest overall balance among the evaluated models and demonstrates good ability to identify positive-class instances.
-
-### Overall Winner for the Dataset
-
-### Random Forest Classifier
-
-Random Forest is considered the overall winner because it achieved the highest AUC, F1 Score, Recall, and MCC. These metrics indicate strong discrimination ability and a good balance between precision and recall compared with the other evaluated classifiers.
+| **ML Model Name** | **Observation about model performance** |
+|---|---|
+| **Logistic Regression** | Achieved the highest accuracy (85.54%) and precision (74.15%). It provides good overall classification performance but has comparatively lower recall than Random Forest. |
+| **Decision Tree** | Achieved an accuracy of 84.50%. It provides reasonable classification performance but has lower AUC and F1 scores compared with Random Forest. |
+| **K-Nearest Neighbors (kNN)** | Achieved an accuracy of 82.87%. Its performance is moderate, with comparatively lower F1 and MCC scores. |
+| **Naive Bayes** | Achieved very high recall (97.39%) but very low accuracy (34.42%) and MCC (0.1589). It identifies most positive-class instances but produces many false positives. |
+| **Random Forest (Ensemble)** | Achieved the highest AUC (0.9152), Recall (0.8191), F1 Score (0.7083), and MCC (0.6099). It provides the strongest overall balance among the evaluated models and demonstrates good ability to identify positive-class instances. |
+| **Overall Winner for the Dataset – Random Forest Classifier** | Random Forest is considered the overall winner because it achieved the highest AUC, F1 Score, Recall, and MCC. These metrics indicate strong discrimination ability and a good balance between precision and recall compared with the other evaluated classifiers. |
 
 ## 8. Random Oversampling Experiment
 
