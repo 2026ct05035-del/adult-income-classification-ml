@@ -35,6 +35,14 @@ After duplicate removal:
 - Income <=50K: 37,109 records (76.06%)
 - Income >50K: 11,681 records (23.94%)
 
+The dataset was examined for missing values. The following missing values were identified:
+Feature	Missing Values
+Occupation	2,805
+Workclass	2,795
+Native Country	856
+
+Missing numerical values were handled using median imputation, while missing categorical values were handled using most-frequent imputation.
+
 The dataset is imbalanced, with the <=50K class forming the majority.
 
 ## 3. Data Preprocessing
@@ -86,6 +94,7 @@ The following five classification algorithms were implemented:
 - Minimum samples per leaf: 2
 - Class weight: balanced_subsample
 - Random state: 42
+Note:The original Random Forest experiment used class_weight="balanced_subsample". The oversampled experiment used Random Oversampling to address class imbalance, with the corresponding model configuration.
 
 ## 6. Model Evaluation and Comparison
 
@@ -109,6 +118,18 @@ The following results are from the original experiment without Random Oversampli
 | kNN | 0.8287 | 0.8732 | 0.6608 | 0.5861 | 0.6212 | 0.5126 |
 | Naive Bayes | 0.3442 | 0.6194 | 0.2643 | 0.9739 | 0.4157 | 0.1589 |
 | Random Forest (Ensemble) | 0.8383 | 0.9152 | 0.6238 | 0.8191 | 0.7083 | 0.6099 |
+
+### Performance Comparison – Random Oversampling
+
+The following results were obtained after applying Random Oversampling to the training data.
+
+| ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
+|---|---:|---:|---:|---:|---:|---:|
+| Logistic Regression | 0.8050 | 0.9057 | 0.5617 | 0.8470 | 0.6755 | 0.5676 |
+| Decision Tree | 0.8033 | 0.8559 | 0.5640 | 0.7896 | 0.6580 | 0.5399 |
+| kNN | 0.7796 | 0.8547 | 0.5272 | 0.7757 | 0.6277 | 0.4972 |
+| Naive Bayes | 0.3450 | 0.6162 | 0.2647 | 0.9757 | 0.4165 | 0.1619 |
+| Random Forest (Ensemble) | 0.8387 | 0.9123 | 0.6309 | 0.7878 | 0.7007 | 0.5990 |
 
 ### Graphical Representation
 
