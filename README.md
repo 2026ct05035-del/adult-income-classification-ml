@@ -220,29 +220,34 @@ adult-income-classification-ml/
 
 ## 11. Execution Instructions
 
-1. Clone the GitHub repository.
-2. Install the required dependencies.
-3. Open the Jupyter Notebook.
-4. Execute all notebook cells sequentially.
+Follow these steps to run the project locally:
 
-**Installation:**
-
-```bash
-pip install -r requirements.txt
-```
-
-**Clone the repository:**
+**Step 1: Clone the GitHub repository**
 
 ```bash
 git clone https://github.com/2026ct05035-del/adult-income-classification-ml.git
 cd adult-income-classification-ml
 ```
 
-**Open Jupyter Notebook:**
+**Step 2: Install the required dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+
+**Step 3: Launch Jupyter Notebook**
 
 ```bash
 jupyter notebook
 ```
+
+**Step 4: Open the notebook**
+
+Open `2026CT05035_ML2.ipynb` in Jupyter Notebook.
+
+**Step 5: Execute the notebook**
+
+Run all notebook cells sequentially to reproduce the data preprocessing, model training, evaluation, and visualizations.
 
 ## 12. Conclusion
 
