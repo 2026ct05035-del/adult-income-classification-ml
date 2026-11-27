@@ -178,14 +178,32 @@ For Random Forest, the original experiment achieved better AUC, recall, F1 and M
 adult-income-classification-ml/
 │
 ├── 2026CT05035_ML2.ipynb
-├── requirements.txt
 ├── README.md
+├── requirements.txt
 ├── test_data.csv
 │
 ├── model/
 │   └── oversampled/
+│       ├── decision_tree.joblib
+│       ├── knn.joblib
+│       ├── logistic_regression.joblib
+│       ├── naive_bayes.joblib
+│       └── random_forest.joblib
 │
 └── outputs/
+    ├── original/
+    │   ├── all_metrics_comparison_original.png
+    │   ├── confusion_matrix_*.png
+    │   ├── metrics_heatmap_original.png
+    │   └── model_metrics.csv
+    │
+    ├── oversampled/
+    │   ├── all_metrics_comparison_oversampled.png
+    │   ├── confusion_matrix_*.png
+    │   ├── metrics_heatmap_oversampled.png
+    │   └── model_metrics.csv
+    │
+    └── original_vs_oversampled_comparison.csv
 ```
 
 ## 10. Technologies Used
