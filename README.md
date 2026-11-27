@@ -35,6 +35,14 @@ After duplicate removal:
 - Income <=50K: 37,109 records (76.06%)
 - Income >50K: 11,681 records (23.94%)
 
+The dataset was examined for missing values. The following missing values were identified:
+Feature	Missing Values
+Occupation	2,805
+Workclass	2,795
+Native Country	856
+
+Missing numerical values were handled using median imputation, while missing categorical values were handled using most-frequent imputation.
+
 The dataset is imbalanced, with the <=50K class forming the majority.
 
 ## 3. Data Preprocessing
@@ -86,6 +94,7 @@ The following five classification algorithms were implemented:
 - Minimum samples per leaf: 2
 - Class weight: balanced_subsample
 - Random state: 42
+Note:The original Random Forest experiment used class_weight="balanced_subsample". The oversampled experiment used Random Oversampling to address class imbalance, with the corresponding model configuration.
 
 ## 6. Model Evaluation and Comparison
 
@@ -109,6 +118,18 @@ The following results are from the original experiment without Random Oversampli
 | kNN | 0.8287 | 0.8732 | 0.6608 | 0.5861 | 0.6212 | 0.5126 |
 | Naive Bayes | 0.3442 | 0.6194 | 0.2643 | 0.9739 | 0.4157 | 0.1589 |
 | Random Forest (Ensemble) | 0.8383 | 0.9152 | 0.6238 | 0.8191 | 0.7083 | 0.6099 |
+
+### Performance Comparison – Random Oversampling
+
+The following results were obtained after applying Random Oversampling to the training data.
+
+| ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
+|---|---:|---:|---:|---:|---:|---:|
+| Logistic Regression | 0.8092 | 0.9082 | 0.5684 | 0.8452 | 0.6797 | 0.5731 |
+| Decision Tree | 0.8063 | 0.8528 | 0.5688 | 0.7913 | 0.6618 | 0.5453 |
+| kNN | 0.7829 | 0.8612 | 0.5320 | 0.7809 | 0.6328 | 0.5045 |
+| Naive Bayes | 0.3533 | 0.6419 | 0.2647 | 0.9739 | 0.4192 | 0.1693 |
+| Random Forest (Ensemble) | 0.8404 | 0.9133 | 0.6333 | 0.7930 | 0.7042 | 0.6039 |
 
 ### Graphical Representation
 
@@ -134,13 +155,14 @@ Achieved an accuracy of 82.87%. Its performance is moderate, with comparatively 
 Achieved very high recall (97.39%) but very low accuracy (34.42%) and MCC (0.1589). It identifies most positive-class instances but produces many false positives.
 
 ### Random Forest (Ensemble)
-Achieved the highest AUC (0.9152), F1 Score (0.7083) and MCC (0.6099). It provides the strongest overall balance among the evaluated models.
+
+Achieved the highest AUC (0.9152), Recall (0.8191), F1 Score (0.7083), and MCC (0.6099). It provides the strongest overall balance among the evaluated models and demonstrates good ability to identify positive-class instances.
 
 ### Overall Winner for the Dataset
 
-**Random Forest Classifier**
+### Random Forest Classifier
 
-Random Forest is considered the overall winner because it achieved the highest AUC, F1 Score and MCC. These metrics indicate good discrimination ability and a better balance between precision and recall compared with the other evaluated classifiers.
+Random Forest is considered the overall winner because it achieved the highest AUC, F1 Score, Recall, and MCC. These metrics indicate strong discrimination ability and a good balance between precision and recall compared with the other evaluated classifiers.
 
 ## 8. Random Oversampling Experiment
 
@@ -148,7 +170,7 @@ A separate experiment was conducted using Random Oversampling to address class i
 
 The results showed that oversampling improved recall for some classifiers, particularly Logistic Regression. However, it did not improve every evaluation metric for every model.
 
-For Random Forest, the original experiment achieved better AUC, recall, F1 and MCC than the oversampled experiment. This demonstrates that oversampling does not necessarily improve overall model performance.
+For Random Forest, the original experiment achieved an AUC of 0.9152, recall of 0.8191, F1 score of 0.7083 and MCC of 0.6099. After Random Oversampling, Random Forest achieved an accuracy of 0.8404, precision of 0.6333 and F1 score of 0.7042. Although oversampling slightly improved accuracy and precision, the original experiment performed better in AUC, recall, F1 and MCC. This indicates that oversampling did not improve the overall performance of Random Forest.
 
 ## 9. Project Structure
 
@@ -156,14 +178,32 @@ For Random Forest, the original experiment achieved better AUC, recall, F1 and M
 adult-income-classification-ml/
 │
 ├── 2026CT05035_ML2.ipynb
-├── requirements.txt
 ├── README.md
+├── requirements.txt
 ├── test_data.csv
 │
 ├── model/
 │   └── oversampled/
+│       ├── decision_tree.joblib
+│       ├── knn.joblib
+│       ├── logistic_regression.joblib
+│       ├── naive_bayes.joblib
+│       └── random_forest.joblib
 │
 └── outputs/
+    ├── original/
+    │   ├── all_metrics_comparison_original.png
+    │   ├── confusion_matrix_*.png
+    │   ├── metrics_heatmap_original.png
+    │   └── model_metrics.csv
+    │
+    ├── oversampled/
+    │   ├── all_metrics_comparison_oversampled.png
+    │   ├── confusion_matrix_*.png
+    │   ├── metrics_heatmap_oversampled.png
+    │   └── model_metrics.csv
+    │
+    └── original_vs_oversampled_comparison.csv
 ```
 
 ## 10. Technologies Used
@@ -180,39 +220,46 @@ adult-income-classification-ml/
 
 ## 11. Execution Instructions
 
-1. Clone the GitHub repository.
-2. Install the required dependencies.
-3. Open the Jupyter Notebook.
-4. Execute all notebook cells sequentially.
+Follow these steps to run the project locally:
 
-**Installation:**
-
-```bash
-pip install -r requirements.txt
-```
-
-**Clone the repository:**
+**Step 1: Clone the GitHub repository**
 
 ```bash
 git clone https://github.com/2026ct05035-del/adult-income-classification-ml.git
 cd adult-income-classification-ml
 ```
 
-**Open Jupyter Notebook:**
+**Step 2: Install the required dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+
+**Step 3: Launch Jupyter Notebook**
 
 ```bash
 jupyter notebook
 ```
 
+**Step 4: Open the notebook**
+
+Open `2026CT05035_ML2.ipynb` in Jupyter Notebook.
+
+**Step 5: Execute the notebook**
+
+Run all notebook cells sequentially to reproduce the data preprocessing, model training, evaluation, and visualizations.
+
 ## 12. Conclusion
 
-This project implemented and evaluated five machine learning classification algorithms using the UCI Adult Income dataset.
+This project implemented and evaluated five machine learning classification algorithms using the UCI Adult Income dataset to predict whether an individual's income exceeds $50K.
 
-The experiments demonstrated differences in model performance across accuracy, AUC, precision, recall, F1 and MCC. Random Forest achieved the best overall performance in the original experiment, while the separate oversampling experiment highlighted the impact of class imbalance handling on classification results.
+The models were evaluated using Accuracy, AUC, Precision, Recall, F1 Score, and Matthews Correlation Coefficient (MCC).
 
-The project provided practical experience in data preprocessing, classification model implementation, performance evaluation and comparison of machine learning algorithms.
+In the original experiment without Random Oversampling, Random Forest achieved the best overall performance in terms of AUC (0.9152), Recall (0.8191), F1 Score (0.7083), and MCC (0.6099). Logistic Regression achieved the highest Accuracy (0.8554) and Precision (0.7415).
 
----
+A separate experiment using Random Oversampling demonstrated its impact on classification performance, particularly improving the recall of Logistic Regression from 0.6087 to 0.8470. However, oversampling did not improve every model or every evaluation metric.
+
+Overall, the experiments provided practical experience in data preprocessing, handling missing values and class imbalance, implementing classification algorithms, and evaluating machine learning models.
 
 **Course:** Machine Learning  
 **Student ID:** 2026CT05035
